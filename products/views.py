@@ -1,7 +1,7 @@
 from rest_framework import generics, mixins
 from .serializers import ProductSerializer, BannerSerializer
 from .models import Product, Banner
-from django.http import JsonResponse, HttpRequest
+from django.http import JsonResponse, HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404
 
 
@@ -32,3 +32,7 @@ def product_detail(request: HttpRequest, slug):
         'slug': product.slug,
     }
     return JsonResponse(response_data)
+
+
+def index(request):
+    return HttpResponse("Welcome To Mikes`s API, Nothing to see here Goodbye :)")

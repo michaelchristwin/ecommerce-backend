@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path
-from products.views import ProductView, BannerView, product_detail
+from products.views import ProductView, BannerView, product_detail, index
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('api/products/', ProductView().as_view(), name='product api'),
     path('api/products/<slug:slug>/', product_detail, name='product_detail'),
